@@ -1,0 +1,39 @@
+#general
+snippet mod "defmodule" b
+defmodule $1 do
+  $0
+end
+endsnippet
+
+snippet def "def" b
+def $1($2) do
+  $0
+end
+endsnippet
+
+#test - MixTest
+snippet test "test" b
+test "$1" do
+  $0
+end
+endsnippet
+
+#test - Rspec
+snippet desc "describe" b
+describe "$1" do
+  $0
+end
+endsnippet
+
+snippet cont "context" b
+context "$1" do
+  $0
+end
+endsnippet
+
+snippet it "it" b
+it "$1" do
+  $0
+end
+endsnippet
+
