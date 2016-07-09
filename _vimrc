@@ -65,7 +65,7 @@ let g:python_host_prog = '/usr/local/bin/python'
 
   function! EnsureExists(path) "{{{
     if !isdirectory(expand(a:path))
-      call mkdir(expand(a:path))
+     call mkdir(expand(a:path))
     endif
   endfunction "}}}
 
@@ -325,6 +325,7 @@ NeoBundle 'Shougo/vimproc.vim', {
     "}}}
     NeoBundle 'honza/vim-snippets' "{{{
     "}}}
+
 
 
     NeoBundle 'Valloric/YouCompleteMe', {'vim_version':'7.3.584'} "{{{
