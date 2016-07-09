@@ -37,7 +37,11 @@
 "    Run py.test test's from within vim
 "
 "
-let g:python_host_prog = '/usr/bin/python'
+"
+"
+
+let g:python_host_prog = '/usr/local/bin/python'
+
 " functions {{{
   function! StrTrim(txt)
     return substitute(a:txt, '^\n*\s*\(.\{-}\)\n*\s*$', '\1', '')
@@ -121,7 +125,6 @@ set timeoutlen=1500
   call neobundle#rc(expand('~/.vim/bundle/'))
   NeoBundleFetch 'Shougo/neobundle.vim'
 "}}}
-
     NeoBundleLazy 'cakebaker/scss-syntax.vim', {'autoload':{'filetypes':['scss','sass']}} "{{{
         autocmd FileType css,scss setlocal foldmethod=marker foldmarker={,}
         autocmd FileType css,scss nnoremap <silent> <leader>S vi{:sort<CR>
@@ -497,15 +500,15 @@ NeoBundle 'Shougo/vimproc.vim', {
       "let g:syntastic_mode_map = {'mode': 'active',
       "      \ 'active_filetypes': ['javascript']}
     "}}}
-    if has('nvim')
-      Neobundle 'benekastah/neomake' "{{{
-        let g:neomake_javascript_eslint_maker = {
-          \ 'args': ['--verbose'],
-          \ 'errorformat': '%A%f: line %l\, col %v\, %m \(%t%*\d\)',
-        \ }
-        let g:neomake_javascript_enabled_makers = ['eslint']
+    "if has('nvim')
+     " Neobundle 'benekastah/neomake' "{{{
+      "  let g:neomake_javascript_eslint_maker = {
+       "   \ 'args': ['--verbose'],
+        "  \ 'errorformat': '%A%f: line %l\, col %v\, %m \(%t%*\d\)',
+       " \ }
+       " let g:neomake_javascript_enabled_makers = ['eslint']
       "}}}
-    endif
+    "endif
     NeoBundleLazy 'Shougo/vimshell.vim', {'autoload':{'commands':[ 'VimShell', 'VimShellInteractive' ]}} "{{{
       if s:is_macvim
         let g:vimshell_editor_command='mvim'
@@ -583,13 +586,24 @@ NeoBundle 'Shougo/vimproc.vim', {
     NeoBundle 'kana/vim-textobj-entire'
     NeoBundle 'lucapette/vim-textobj-underscore'
 
-    NeoBundleLazy 'tpope/vim-fireplace', { 'depends' : ['tpope/vim-salve'] } "{{{}}}
+    NeoBundle 'tpope/vim-fireplace' "{{{
+      nnoremap <leader>E :Eval<cr>
+      nnoremap <leader>R :%Eval<cr>
+    "}}}
+    NeoBundle 'cemerick/piggieback'
+    NeoBundle 'guns/vim-clojure-static'
+    NeoBundle 'tpope/vim-classpath'
+    NeoBundle 'vim-scripts/vimclojure'
+
+    NeoBundle 'elixir-lang/vim-elixir'
+    NeoBundle 'mattreduce/vim-mix'
+    NeoBundle 'slashmili/alchemist.vim'
 
     nnoremap <leader>nbu :Unite neobundle/update -vertical -no-start-insert<cr>
 
-" set backupdir=$VIMRUNTIME/swap/
-" set directory=$VIMRUNTIME/swap/
-" silent execute '!rm "'.$VIMRUNTIME.'/temp/*~"'
+set backupdir=~/swap/
+set directory=~/swap/
+silent execute '!rm "'.$VIMRUNTIME.'/temp/*~"'
 
 let g:Powerline_symbols="fancy"
 set history=700

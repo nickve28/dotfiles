@@ -112,7 +112,7 @@ source /usr/local/bin/virtualenvwrapper.sh
 export PIP_VIRTUALENV_BASE=$WORKON_HOME
 export PIP_RESPECT_VIRTUALENV=true
 export PROJECT_HOME=$HOME/projects/python
-export VIRTUALENVWRAPPER_BITBUCKET_USER=rolfst
+export VIRTUALENVWRAPPER_BITBUCKET_USER=nvaneijk
 
 # Add git and svn branch names
 export EDITOR=vim
